@@ -2,6 +2,10 @@ const express = require('express')
 
 const app = express()
 
+app.get('/', (req, res) => {
+    res.send('Server is running'); // Send a response for the root URL
+});
+
 app.get('/name', (req, res) => {
     const name = "Big Al";
 
