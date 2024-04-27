@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
+    "lint": "eslint *.js src/**/*.js",
+    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,6 @@
   },
   "homepage": "https://github.com/JakeZalesny/personal-assignment-1#readme",
   "dependencies": {
-    "express": "^4.19.2",
-    "vite": "^5.2.10"
+    "express": "^4.19.2"
   }
 }
