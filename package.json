@@ -5,11 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node index.js",
-    "build": "vite build --emptyOutDir",
-    "preview": "vite preview",
-    "lint": "eslint *.js src/**/*.js",
-    "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\""
+    "start": "node index.js"
+
   },
   "repository": {
     "type": "git",
