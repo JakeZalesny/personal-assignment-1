@@ -4,7 +4,8 @@
   "description": "First Personal Assignment for CSE-341",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JakeZalesny/personal-assignment-1/issues"
   },
-  "homepage": "https://github.com/JakeZalesny/personal-assignment-1#readme"
+  "homepage": "https://github.com/JakeZalesny/personal-assignment-1#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
