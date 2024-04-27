@@ -2,10 +2,10 @@
   "name": "personal-assignment-1",
   "version": "1.0.0",
   "description": "First Personal Assignment for CSE-341",
-  "main": "index.js",
+  "main": "src/routes/index.js",
   "scripts": {
     "test": "jest",
-    "start": "node index.js"
+    "start": "node src/routes/index.js"
 
   },
   "repository": {
