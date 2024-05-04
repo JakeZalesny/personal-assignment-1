@@ -1,15 +1,24 @@
-const express = require('express')
+require('dotenv').config();
+const express = require('express');
+const { MongoClient } = require('mongodb');
+const app = express();
 
-const app = express()
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Big Al'); // Send a response for the root URL
+const client = new MongoClient(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+let db; 
+let contactsCollection; 
+
+client.connect((err) => {
+    if (err) {
+      console.error('Error occurred while connecting to MongoDB', err);
+      return;
+    }
+    console.log('Connected to MongoDB');
 });
 
-
-const port = process.env.port || 3000;
-
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
-
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
