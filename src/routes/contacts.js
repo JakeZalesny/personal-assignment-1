@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../controlers/index');
+const client = require('../controlers/contacts');
 
 router.get('/', async (req, res) => {
     try {

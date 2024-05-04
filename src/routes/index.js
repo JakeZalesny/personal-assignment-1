@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 
-const router = require('./routes/contacts');
+const router = require('./contacts');
+
 
 app.use('/api/contacts', router);
 const PORT = process.env.PORT || 3000;
