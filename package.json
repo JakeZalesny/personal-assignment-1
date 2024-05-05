@@ -2,10 +2,10 @@
   "name": "personal-assignment-1",
   "version": "1.0.0",
   "description": "First Personal Assignment for CSE-341",
-  "main": "src/routes/index.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon src/routes/index.js",
+    "start": "nodemon app.js",
     "build": "npm i"
   },
   "repository": {
