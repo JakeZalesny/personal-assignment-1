@@ -1,12 +1,24 @@
-require('dotenv').config();
-const express = require('express');
-const { MongoClient } = require('mongodb');
-const app = express();
+const mongodb = require('../connect');
+const ObjectId = require('mongodb').ObjectId;
 
-const MONGO_URI = process.env.MONGO_URI
+const getAllContacts = async (req, res) => {
+    const result = await mongodb.getDb().db().collection('contacts').find();
+    result.toArray().then((lists) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists);
+    });
+};
 
-app.use(express.json());
+const getSingleContact = async (req, res) => {
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb.getDb().db().collection('contacts').find({_id: userId});
+    result.toArray().then((lists) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists[0]);
+    })
+};
 
-const client = new MongoClient(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-module.exports = client; 
+module.exports = {
+    getAllContacts,
+    getSingleContact
+}

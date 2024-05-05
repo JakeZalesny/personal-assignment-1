@@ -1,12 +1,26 @@
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser');
+const router = require('./contacts');
+const mongodb = require('../connect');
+
 const app = express();
 
-const router = require('./contacts');
+app
+    .use(bodyParser.json())
+    .use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+        next();
+    })
+    .use('/', router);
 
-
-app.use('/api/contacts', router);
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-});
+    mongodb.initDb((err, mongodb) => {
+        if (err) {
+          console.log(err);
+        } else {
+          app.listen(port);
+          console.log(`Connected to DB and listening on ${port}`);
+        }
+      });
