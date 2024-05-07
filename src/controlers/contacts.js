@@ -10,6 +10,7 @@ const getAllContacts = async (req, res, next) => {
   };
 
 const getSingleContact = async (req, res, next) => {
+  
     const userId = new ObjectId(req.params.id);
     const result = await mongodb
       .getDB()
