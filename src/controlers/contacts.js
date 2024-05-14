@@ -1,5 +1,6 @@
 const mongodb = require('../connect');
 const ObjectId = require('mongodb').ObjectId;
+// const swaggerAutogen = require('swagger-autogen')();
 
 const getAllContacts = async (req, res, next) => {
     const result = await mongodb.getDB().db().collection('contacts').find();
